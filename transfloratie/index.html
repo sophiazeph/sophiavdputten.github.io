@@ -12,27 +12,20 @@
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 		<style>
-			.lang-switch {
-				position: absolute;
-				top: 1.5em;
-				right: 1.5em;
-				z-index: 10000;
+			#nav .lang-switch {
+				display: inline-block;
+				margin-right: 1.5em;
 				font-size: 0.8em;
 				letter-spacing: 0.1em;
+				vertical-align: middle;
 			}
-			.lang-switch a { text-decoration: none; opacity: 0.6; }
-			.lang-switch a:hover { opacity: 1; }
-			.lang-switch a.active { opacity: 1; font-weight: bold; }
-			@media screen and (max-width: 736px) {
-				.lang-switch { top: 1em; right: 1em; font-size: 0.7em; }
-			}
+			#nav .lang-switch a { text-decoration: none; opacity: 0.6; border-bottom: none; }
+			#nav .lang-switch a:hover { opacity: 1; }
+			#nav .lang-switch a.active { opacity: 1; font-weight: bold; }
+			#nav > ul { display: inline-block; vertical-align: middle; }
 		</style>
 	</head>
 	<body class="is-preload">
-		<div class="lang-switch">
-			<a href="/transfloratie/" class="active">NL</a> |
-			<a href="/en/transfloratie/">EN</a>
-		</div>
 		<div id="page-wrapper">
 			<!-- Header -->
 				<header id="header">
