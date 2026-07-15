@@ -11,6 +11,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+		<style>
+			#nav .lang-switch {
+				display: inline-block;
+				margin-right: 1.5em;
+				font-size: 0.8em;
+				letter-spacing: 0.1em;
+				vertical-align: middle;
+			}
+			#nav .lang-switch a { text-decoration: none; opacity: 0.6; border-bottom: none; }
+			#nav .lang-switch a:hover { opacity: 1; }
+			#nav .lang-switch a.active { opacity: 1; font-weight: bold; }
+			#nav > ul { display: inline-block; vertical-align: middle; }
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -18,17 +31,21 @@
 				<header id="header">
 					<h1><a href="/">Sophia van der Putten</a></h1>
 					<nav id="nav">
+						<span class="lang-switch">
+							<a href="/fluidical/" class="active">NL</a> |
+							<a href="/en/fluidical/">EN</a>
+						</span>
 						<ul>
 							<li class="special">
 								<a href="#menu" class="menuToggle"><span>Menu</span></a>
-							<div id="menu">
+								<div id="menu">
 									<ul>
 										<li><a href="/">Home</a></li>
 										<li><a href="/over/">Over</a></li>
 										<li><a href="/transfloratie/">Transfloratie</a></li>
 										<li><a href="/botaniek/">Botaniek</a></li>
 										<li><a href="/fluidical/">Fluidical</a></li>
-										<li><a href="/#footer">Contact</a></li>
+										<li><a href="/contact/">Contact</a></li>
 									</ul>
 								</div>
 							</li>
@@ -47,24 +64,16 @@
 							<h3>Over Fluidical</h3>
 							<p>In een slijmerige wereld zoekt een vloeibaar wezen naar diens plek en vraagt zich af in welke vorm die mag bestaan.</p>
 							<p>Kunnen we, tussen walging en aantrekkingskracht, dit wezen zien voor wat die is?</p>
-							<br>
-							<p>maker: Sophia van der Putten</p>
-							<p>performer: Flore Muuse</p>
-							<p>dramaturgie: Maarten Bos</p>
-							<p>scenografie: Studio HB Staging</p>
-							<br>
-							<h3>About Fluidical</h3>
-							<p>In a slimy world, a fluid creature searches for its place and wonders in what form it is allowed to exist.</p>
-							<p>Can we, between disgust and attraction, see this creature for what it is?</p>
-							<br>
-							<p>maker: Sophia van der Putten</p>
-							<p>performer: Flore Muuse</p>
-							<p>dramaturgy: Maarten Bos</p>
-							<p>scenography: Studio HB Staging</p>
+
+							<p>CREDITS<br />
+							maker: Sophia van der Putten<br />
+							performer: Flore Muuse<br />
+							dramaturgie: Maarten Bos<br />
+							scenografie: Studio HB Staging</p>
 						</div>
 					</section>
 				</article>
-			
+
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
