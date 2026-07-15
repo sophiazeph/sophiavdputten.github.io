@@ -10,8 +10,23 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="Sophia van der Putten — choreograaf, regisseur, performer en docent" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+		<style>
+			#nav .lang-switch {
+				display: inline-block;
+				margin-right: 1.5em;
+				font-size: 0.8em;
+				letter-spacing: 0.1em;
+				vertical-align: middle;
+			}
+			#nav .lang-switch a { text-decoration: none; opacity: 0.6; border-bottom: none; }
+			#nav .lang-switch a:hover { opacity: 1; }
+			#nav .lang-switch a.active { opacity: 1; font-weight: bold; }
+			#nav > ul { display: inline-block; vertical-align: middle; }
+			#one.wrapper { padding: 3em 0 1em 0; }
+			#one .major { margin-bottom: 0; }
+		</style>
 	</head>
 	<body class="landing is-preload">
 		<div id="page-wrapper">
@@ -20,6 +35,10 @@
 				<header id="header" class="alt">
 					<h1><a href="/">Sophia van der Putten</a></h1>
 					<nav id="nav">
+						<span class="lang-switch">
+							<a href="/" class="active">NL</a> |
+							<a href="/en/">EN</a>
+						</span>
 						<ul>
 							<li class="special">
 								<a href="#menu" class="menuToggle"><span>Menu</span></a>
@@ -30,7 +49,7 @@
 										<li><a href="/transfloratie/">Transfloratie</a></li>
 										<li><a href="/botaniek/">Botaniek</a></li>
 										<li><a href="/fluidical/">Fluidical</a></li>
-										<li><a href="#footer">Contact</a></li>
+										<li><a href="/contact/">Contact</a></li>
 									</ul>
 								</div>
 							</li>
@@ -43,29 +62,9 @@
 					<div class="inner">
 						<h2>Sophia van der Putten</h2>
 						<p><em>die/diens · they/them</em></p>
-						<p>choreograaf, regisseur, performer en docent</p>
-						<ul class="actions special">
-							<li><a href="#intro" class="button primary scrolly">Over</a></li>
-						</ul>
+						<p>choreograaf &middot; regisseur &middot; performer &middot; docent</p>
 					</div>
-					<a href="#intro" class="more scrolly">meer</a>
-				</section>
-
-			<!-- Over mij -->
-				<section id="intro" class="wrapper style1 special">
-					<div class="inner">
-						<header class="major">
-							<h2>Over</h2>
-							<p>Mijn werk beweegt zich op het snijvlak van dans, theater, film en beeldende kunst, met een fascinatie voor lichamelijke transformaties die verontrusten en betoveren.</p>
-						</header>
-						<p>Ik geloof dat juist in die tussenruimte, waar afstoting en aantrekking elkaar raken, transformatie mogelijk wordt. Wanneer we de spanning tussen tegenstellingen niet meteen proberen op te lossen, maar deze juist toelaten, ontstaat er een dynamiek waarin perceptie kan verschuiven. <a href="/over/">Lees meer &raquo;</a></p>
-						<br>
-						<header class="major">
-							<h2>About</h2>
-							<p>My work moves at the intersection of dance, theater, film and visual art, with a fascination for bodily transformations that unsettle and captivate.</p>
-						</header>
-						<p>I believe that it is precisely in that in-between space, where repulsion and attraction meet, that transformation becomes possible. When we don't try to resolve the tension between opposites right away, but instead allow it to exist, a dynamic emerges in which perception can shift. <a href="/over/">Read more &raquo;</a></p>
-					</div>
+					<a href="#one" class="more scrolly">meer</a>
 				</section>
 
 			<!-- Werk intro -->
@@ -80,18 +79,17 @@
 			<!-- Projecten -->
 				<section id="two" class="wrapper alt style2">
 					<section class="spotlight">
-						<div class="image"><img src="images/transfloratie.jpg" alt="Transfloratie" /></div><div class="content">
+						<div class="image"><img src="/images/transfloratie.jpg" alt="Transfloratie" /></div><div class="content">
 							<h2>Transfloratie</h2>
-						<p><strong>Dans &amp; muziektheater</strong><br />Sciencefiction over transidentiteit en zelfbeschikking onder religieuze macht.</p>
+							<p><strong>Dans &amp; muziektheater</strong><br />Sciencefiction over transidentiteit en zelfbeschikking onder religieuze macht.</p>
 							<p><a href="http://amsterdamfringe.nl/transfloratie/" target="_blank" rel="noopener">Koop je kaarten hier</a></p>
-							<p><a href="https://amsterdamfringefestival.nl/en/transfloratie-2/" target="_blank" rel="noopener">Buy your tickets here</a></p>
 							<ul class="actions">
 								<li><a href="/transfloratie/" class="button">Lees meer</a></li>
 							</ul>
 						</div>
 					</section>
 					<section class="spotlight">
-						<div class="image"><img src="images/botaniek.jpg" alt="Botaniek" /></div><div class="content">
+						<div class="image"><img src="/images/botaniek.jpg" alt="Botaniek" /></div><div class="content">
 							<h2>Botaniek</h2>
 							<p><strong>Danstheater</strong><br />Een surrealistische wereld waarin het lichaam een bloementuin wordt.<br />Foto: Rick van Woudenberg</p>
 							<ul class="actions">
@@ -100,7 +98,7 @@
 						</div>
 					</section>
 					<section class="spotlight">
-						<div class="image"><img src="images/fluidical.jpeg" alt="Fluidical" /></div><div class="content">
+						<div class="image"><img src="/images/fluidical.jpeg" alt="Fluidical" /></div><div class="content">
 							<h2>Fluidical</h2>
 							<p><strong>Performance</strong><br />In een slijmerige wereld zoekt een vloeibaar wezen naar diens plek en vraagt zich af in welke vorm die mag bestaan.<br />Foto: Hermien Buyse</p>
 							<ul class="actions">
@@ -124,13 +122,13 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 </html>
