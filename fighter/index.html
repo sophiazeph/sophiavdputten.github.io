@@ -3,10 +3,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
-/* Layout: arcade select screen — fighter on a mossy stage left, symbol rack right; stacks on phone. Single dark look by choice. */
+/* Layout: arcade select screen — fighter on a dark stage left, symbol rack right; stacks on phone. Single dark look by choice. */
 :root{
-  --night:#0c1a33; --moss:#13284d; --moss-2:#1c3a6b; --line:#2e548c;
-  --lichen:#c6dd7f; --rose:#f29ac4; --ink:#eef2e3; --muted:#a6b6d2;
+  --night:#000000; --moss:#121212; --moss-2:#262626; --line:#3d3d3d;
+  --lichen:#e3000f; --rose:#ffffff; --ink:#ffffff; --muted:#b3b3b3;
   --display:"Bungee","Arial Black",Impact,sans-serif;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
@@ -33,7 +33,7 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,6vw,52px);lin
 .name input:focus{outline:2px solid var(--lichen);outline-offset:1px}
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .tab{font-family:var(--display);font-size:13px;letter-spacing:.04em;background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--lichen);color:var(--night);border-color:var(--lichen)}
+.tab[aria-selected="true"]{background:var(--lichen);color:#fff;border-color:var(--lichen)}
 .tab .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--rose);margin-left:6px;vertical-align:middle}
 .items{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
 .item{position:relative;background:var(--moss);border:2px solid var(--line);border-radius:12px;padding:10px 8px 10px;color:var(--ink);font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;transition:transform .12s,border-color .12s}
@@ -50,11 +50,11 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,6vw,52px);lin
 .summary dd{margin:0}
 .empty{color:var(--muted);font-style:italic}
 .btn{font:inherit;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;border:2px solid var(--lichen)}
-.btn.primary{background:var(--lichen);color:var(--night)}
+.btn.primary{background:var(--lichen);color:#fff}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn.warn{background:transparent;color:var(--rose);border-color:var(--rose)}
 dialog{background:var(--moss);color:var(--ink);border:2px solid var(--lichen);border-radius:16px;padding:0;width:min(560px,calc(100vw - 32px));max-height:86vh}
-dialog::backdrop{background:rgba(5,10,7,.72)}
+dialog::backdrop{background:rgba(0,0,0,.78)}
 .dlg{padding:18px 20px 20px;overflow:auto;max-height:86vh}
 .dlg-top{display:flex;gap:16px;align-items:center;margin-bottom:10px}
 .dlg-top svg{width:96px;height:96px;flex:none;background:var(--night);border-radius:12px;padding:6px}
@@ -76,7 +76,7 @@ dialog::backdrop{background:rgba(5,10,7,.72)}
 .card .front:hover{border-color:var(--lichen)}
 .card .front:focus-visible{outline:3px solid var(--lichen);outline-offset:3px}
 .card .front svg{width:min(190px,48vw);height:min(190px,48vw)}
-.flip-cue{font-family:var(--display);font-size:14px;letter-spacing:.06em;color:var(--night);background:var(--lichen);border-radius:999px;padding:8px 18px}
+.flip-cue{font-family:var(--display);font-size:14px;letter-spacing:.06em;color:#fff;background:var(--lichen);border-radius:999px;padding:8px 18px}
 .card .back{transform:rotateY(180deg);display:flex;flex-direction:column;gap:12px;border-color:var(--rose)}
 .card.flipped .front{transform:rotateY(-180deg)}
 .card.flipped .back{transform:rotateY(0)}
@@ -87,8 +87,8 @@ dialog::backdrop{background:rgba(5,10,7,.72)}
 #cText.todo{color:var(--muted);font-style:italic}
 .dots{display:flex;gap:8px;justify-content:center;margin:14px 0 4px}
 .dots span{width:10px;height:10px;border-radius:50%;background:var(--line)}
-.dots span.on{background:var(--rose)}
-.dots span.done{background:var(--lichen)}
+.dots span.on{background:var(--lichen)}
+.dots span.done{background:var(--rose)}
 .rv-actions{justify-content:center;min-height:46px}
 .fin-list{display:grid;grid-template-columns:max-content 52px 1fr;gap:10px 14px;align-items:center;margin:18px 0}
 .fin-list dt{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
@@ -109,7 +109,7 @@ dialog::backdrop{background:rgba(5,10,7,.72)}
 .fcard .pic{background:radial-gradient(ellipse at 50% 85%,var(--moss-2),var(--night) 70%);border-radius:12px;padding:6px}
 .fcard .pic svg{display:block;width:100%;height:auto;max-height:52vh}
 .fcard .fin-list{margin:4px 0 0}
-.fin-list dd.changed{color:var(--rose)}
+.fin-list dd.changed{color:var(--lichen)}
 .cmp-actions{margin-top:18px}
 #dBody .meaning{margin:6px 0 0}
 #dBody .todo{color:var(--muted);font-style:italic}
@@ -519,19 +519,19 @@ async function makeImage(list){try{await document.fonts.load('40px Bungee')}catc
   const BF='"Atkinson Hyperlegible",system-ui,sans-serif',wrap=(txt,w,f)=>{x.font=f;const ls=[];txt.split(/\n\n+/).forEach((pa,pi)=>{if(pi)ls.push('');let l='';pa.split(' ').forEach(wd=>{const tt=l?l+' '+wd:wd;if(x.measureText(tt).width>w&&l){ls.push(l);l=wd}else l=tt});if(l)ls.push(l)});return ls};
   const its=chosenItems(list),blocks=its.map(it=>({it,ls:wrap(meaningOf(it)||t('todo'),W-120,'30px '+BF)}));
   const mH=110+blocks.reduce((s,b)=>s+64+b.ls.length*42+34,0)+70,H=1420+mH;c.width=W;c.height=H;
-  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#13284d');g.addColorStop(1,'#0c1a33');x.fillStyle=g;x.fillRect(0,0,W,H);
+  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#121212');g.addColorStop(1,'#000000');x.fillStyle=g;x.fillRect(0,0,W,H);
   for(let i=0;i<n;i++){const f=list[i],x0=60+i*(colW+60);
-    x.fillStyle='#a6b6d2';x.font='600 30px '+BF;if(n>1)x.fillText((i?t('second'):t('first')).toUpperCase(),x0,96);
-    x.fillStyle='#c6dd7f';x.font='64px Bungee,"Arial Black",sans-serif';x.fillText(f.name,x0,n>1?170:140);
+    x.fillStyle='#b3b3b3';x.font='600 30px '+BF;if(n>1)x.fillText((i?t('second'):t('first')).toUpperCase(),x0,96);
+    x.fillStyle='#e3000f';x.font='64px Bungee,"Arial Black",sans-serif';x.fillText(f.name,x0,n>1?170:140);
     const im=await svgToImg(f.svg),ih=Math.min(980,colW*im.height/im.width),iw=ih*im.width/im.height;x.drawImage(im,x0+(colW-iw)/2,200,iw,ih);const ly=200+ih+80;
     x.font='34px '+BF;
-    CATS.forEach((ct,k)=>{const it=byId(f.picks[ct.id]);x.fillStyle='#a6b6d2';x.fillText(clabel(ct),x0,ly+k*52);x.fillStyle='#eef2e3';x.fillText(iname(it),x0+260,ly+k*52)})}
-  let y=1420;x.fillStyle='#2e548c';x.fillRect(60,y-40,W-120,2);
-  x.fillStyle='#c6dd7f';x.font='44px Bungee,"Arial Black",sans-serif';x.fillText(t('meanings'),60,y+30);y+=110;
-  blocks.forEach(b=>{x.fillStyle='#a6b6d2';x.font='600 24px '+BF;x.fillText(clabel(CATS.find(cc=>cc.id===b.it.cat)).toUpperCase(),60,y);
-    x.fillStyle='#eef2e3';x.font='700 36px '+BF;x.fillText(iname(b.it),60,y+42);y+=64+18;
-    x.font='30px '+BF;x.fillStyle='#d8e0ee';b.ls.forEach(l=>{x.fillText(l,60,y);y+=42});y+=34-18});
-  x.fillStyle='#a6b6d2';x.font='26px '+BF;x.fillText('Choose your fighter · Transfloratie',60,H-36);
+    CATS.forEach((ct,k)=>{const it=byId(f.picks[ct.id]);x.fillStyle='#b3b3b3';x.fillText(clabel(ct),x0,ly+k*52);x.fillStyle='#ffffff';x.fillText(iname(it),x0+260,ly+k*52)})}
+  let y=1420;x.fillStyle='#3d3d3d';x.fillRect(60,y-40,W-120,2);
+  x.fillStyle='#e3000f';x.font='44px Bungee,"Arial Black",sans-serif';x.fillText(t('meanings'),60,y+30);y+=110;
+  blocks.forEach(b=>{x.fillStyle='#b3b3b3';x.font='600 24px '+BF;x.fillText(clabel(CATS.find(cc=>cc.id===b.it.cat)).toUpperCase(),60,y);
+    x.fillStyle='#ffffff';x.font='700 36px '+BF;x.fillText(iname(b.it),60,y+42);y+=64+18;
+    x.font='30px '+BF;x.fillStyle='#e6e6e6';b.ls.forEach(l=>{x.fillText(l,60,y);y+=42});y+=34-18});
+  x.fillStyle='#b3b3b3';x.font='26px '+BF;x.fillText('Choose your fighter · Transfloratie',60,H-36);
   return new Promise(r=>c.toBlob(r,'image/png'))}
 function currentList(){return round===2&&fighters[1]?fighters:[fighters[0]]}
 function fileName(){return 'fighter-'+(fighters[0].name||t('my')).toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.png'}
