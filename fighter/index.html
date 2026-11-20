@@ -1,7 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <title>Choose Your Fighter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+</head><body>
 <style>
 /* Layout: arcade select screen — fighter on a dark stage left, symbol rack right; stacks on phone. Single dark look by choice. */
 :root{
@@ -145,7 +146,66 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 .lang-pick .actions{justify-content:center;margin-top:0}
 .lang-pick .btn{min-width:150px}
 @media (prefers-reduced-motion:reduce){.rise,.flit,.bob{animation:none}.item{transition:none}.item:hover{transform:none}}
+/* Openingspagina: zwart podium, rode gloed achter de figuur, taalkeuze */
+html.intro-on,html.intro-on body{overflow:hidden}
+#intro{position:fixed;inset:0;z-index:60;background:var(--night);color:var(--ink);overflow:hidden;transition:opacity .7s ease,visibility .7s}
+#intro.gone{opacity:0;visibility:hidden}
+#intro .bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.intro-in{position:relative;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;justify-items:center;gap:6px;padding:max(22px,env(safe-area-inset-top)) 16px max(22px,env(safe-area-inset-bottom));text-align:center}
+.intro-eyebrow{color:var(--muted);font-size:15px;margin:0 0 4px}
+#intro h1{font-size:clamp(38px,8.5vw,84px);line-height:.98;color:var(--lichen);text-shadow:0 4px 0 #000,0 0 44px rgba(227,0,15,.4)}
+.hero{position:relative;width:100%;height:100%;min-height:200px}
+.hero .halo{position:absolute;left:50%;top:50%;width:min(150vh,130vw);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
+.hero .halo .rays{transform-origin:500px 500px;animation:spin 120s linear infinite}
+.hero img{position:absolute;inset:0;height:100%;width:100%;object-fit:contain;pointer-events:none;filter:drop-shadow(0 18px 24px rgba(0,0,0,.7));animation:idle 5.5s ease-in-out infinite}
+.intro-in>div:last-child{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+.intro-lead{margin:0 0 4px;max-width:40ch;font-size:17px;color:var(--ink)}
+.intro-lead[lang=en]{color:var(--muted);font-size:15px;margin-bottom:16px}
+.intro-pick{font-family:var(--display);font-size:15px;color:var(--ink);margin:0 0 10px;letter-spacing:.02em}
+.intro-pick span{color:var(--muted)}
+.intro-langs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.go{font-family:var(--display);font-size:18px;letter-spacing:.03em;min-height:54px;min-width:170px;padding:0 28px;border-radius:999px;border:2px solid var(--lichen);background:var(--lichen);color:#fff;cursor:pointer;box-shadow:0 0 0 4px rgba(227,0,15,.22),0 10px 30px rgba(0,0,0,.6);transition:transform .15s}
+.go:hover{transform:translateY(-2px)}
+.go:focus-visible{outline:3px solid #fff;outline-offset:4px}
+#intro .ff{animation:twinkle 3.4s ease-in-out infinite}
+@keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes twinkle{0%,100%{opacity:.12}50%{opacity:.9}}
+@media (max-height:620px){.intro-lead[lang=en]{display:none}.intro-lead{margin-bottom:12px}}
+@media (prefers-reduced-motion:reduce){.hero img,.hero .halo .rays,#intro .ff{animation:none}#intro{transition:none}}
 </style>
+
+<section id="intro" aria-labelledby="introTitle">
+  <svg class="bg" id="introBg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="intro-in">
+    <div>
+      <p class="intro-eyebrow">Transfloratie · contextprogramma</p>
+      <h1 id="introTitle">Choose your fighter</h1>
+    </div>
+    <div class="hero">
+      <svg class="halo" viewBox="0 0 1000 1000" aria-hidden="true">
+        <defs>
+          <radialGradient id="hGlow"><stop offset="0" stop-color="#e3000f" stop-opacity=".38"/><stop offset=".3" stop-color="#e3000f" stop-opacity=".14"/><stop offset=".65" stop-color="#e3000f" stop-opacity=".04"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+          <radialGradient id="hRay"><stop offset=".08" stop-color="#ffffff" stop-opacity=".09"/><stop offset=".7" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="500" cy="500" r="500" fill="url(#hGlow)"/>
+        <g class="rays" id="introRays"></g>
+        <circle cx="500" cy="500" r="168" fill="none" stroke="#e3000f" stroke-opacity=".45" stroke-width="2"/>
+        <circle cx="500" cy="500" r="186" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="1.5" stroke-dasharray="3 9"/>
+      </svg>
+      <img id="introImg" alt="De fighter, nog zonder symbolen">
+    </div>
+    <div>
+      <p class="intro-lead" lang="nl">Wat draag jij uit?</p>
+      <p class="intro-lead" lang="en">What do you stand for?</p>
+      <p class="intro-pick">Kies je taal <span>· Choose your language</span></p>
+      <div class="intro-langs">
+        <button class="go" type="button" data-lang="nl" lang="nl">Nederlands</button>
+        <button class="go" type="button" data-lang="en" lang="en">English</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="wrap">
   <header>
@@ -153,7 +213,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     <div class="hdr-right"><div class="sub" data-i="sub">Transfloratie · contextprogramma</div><button class="lang-toggle" id="langToggle" type="button" hidden>English</button></div>
   </header>
 
-  <section class="lang-pick" id="langPick" aria-labelledby="lpTitle">
+  <section class="lang-pick" id="langPick" aria-labelledby="lpTitle" hidden>
     <h2 id="lpTitle" lang="nl">Kies je taal</h2>
     <p lang="en">Choose your language</p>
     <div class="actions">
@@ -564,6 +624,30 @@ $('skinSw').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if
 renderSkin();
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{$('langPick').hidden=true;document.querySelector('.grid').hidden=false;$('langToggle').hidden=false;setLang(b.dataset.lang);window.scrollTo(0,0)});
 $('langToggle').onclick=()=>setLang(LANG==='nl'?'en':'nl');
+
+// ---------- openingspagina ----------
+{
+  let sd=7;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
+  const bush=(cx,cy,r,col,n)=>{let s='';for(let i=0;i<n;i++){const a=Math.PI*(1+i/(n-1)),rr=r*(.45+rnd()*.35);s+=`<circle cx="${(cx+Math.cos(a)*r*.9).toFixed(0)}" cy="${(cy+Math.sin(a)*r*.55).toFixed(0)}" r="${rr.toFixed(0)}" fill="${col}"/>`}return s+`<ellipse cx="${cx}" cy="${cy+r*.3}" rx="${r*1.1}" ry="${r*.6}" fill="${col}"/>`};
+  let stars='';for(let i=0;i<110;i++)stars+=`<circle cx="${(rnd()*1600).toFixed(0)}" cy="${(rnd()*640).toFixed(0)}" r="${(rnd()*1.5+.4).toFixed(1)}" fill="#ffffff" opacity="${(rnd()*.45+.12).toFixed(2)}"/>`;
+  let ff='';for(let i=0;i<26;i++){const x=rnd()*1600,y=500+rnd()*460;ff+=`<circle class="ff" cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(rnd()*2.4+1.6).toFixed(1)}" fill="${i%3?'#ff4a52':'#ffffff'}" style="animation-delay:-${(rnd()*3.4).toFixed(2)}s;filter:drop-shadow(0 0 6px #e3000f)"/>`}
+  const back='#131313',front='#070707';
+  $('introBg').innerHTML=`<defs>
+    <radialGradient id="iFloor" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e3000f" stop-opacity=".2"/><stop offset="1" stop-color="#e3000f" stop-opacity="0"/></radialGradient>
+   </defs>
+   <rect width="1600" height="1000" fill="#000"/>${stars}
+   ${bush(80,930,260,back,9)}${bush(1530,940,280,back,9)}${bush(380,1010,200,back,7)}${bush(1220,1010,210,back,7)}
+   <ellipse cx="800" cy="1000" rx="560" ry="130" fill="url(#iFloor)"/>
+   ${bush(-20,1040,240,front,8)}${bush(1640,1050,250,front,8)}
+   ${ff}`;
+  let rays='';for(let i=0;i<28;i++){const a=i*Math.PI*2/28,b=a+Math.PI/56;rays+=`<polygon points="500,500 ${(500+520*Math.cos(a)).toFixed(0)},${(500+520*Math.sin(a)).toFixed(0)} ${(500+520*Math.cos(b)).toFixed(0)},${(500+520*Math.sin(b)).toFixed(0)}" fill="url(#hRay)"/>`}
+  $('introRays').innerHTML=rays;
+  $('introImg').src=$('body').getAttribute('href');
+  document.documentElement.classList.add('intro-on');
+  const closeIntro=()=>{$('intro').classList.add('gone');document.documentElement.classList.remove('intro-on');$('intro').setAttribute('aria-hidden','true');setTimeout(()=>{$('intro').hidden=true},750)};
+  document.querySelectorAll('#intro [data-lang]').forEach(b=>{const pick=b.onclick;b.onclick=()=>{pick();closeIntro()}});
+  setTimeout(()=>document.querySelector('#intro [data-lang]').focus({preventScroll:true}),60);
+}
 </script>
 
 </body></html>
